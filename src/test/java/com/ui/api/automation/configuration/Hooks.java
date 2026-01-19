@@ -52,7 +52,7 @@ public class Hooks {
 		if (driver != null) {
 			driver.close();
 			driver.quit();
-			driver = null;
+			//driver = null;
 		}
 	}
 

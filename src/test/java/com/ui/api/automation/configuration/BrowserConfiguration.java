@@ -59,10 +59,9 @@ public class BrowserConfiguration {
 
 	@Before(order = 1)
 	public void openBrowser(Scenario scenario) {
-		System.out.println("scenario Name : " + scenario.getName());
 
 		if (scenario.getSourceTagNames().toString().contains("@UI")) {
-			System.out.println("Thread : " + Thread.currentThread().threadId());
+			System.out.println("Thread : " + Thread.currentThread().threadId() + " : " + scenario.getName());
 			System.out.println("Driver Address Initial : " + hooks.getDriver());
 			hooks.launchBrowser();
 			System.out.println("Driver Address after creating : " + hooks.getDriver());

@@ -8,8 +8,8 @@ Feature: Billing Feature Testing
   Scenario: Billing Feature scenario - 1
     Given  User navigate to "https://www.nitt.edu/"
     
-  @tag2 @Test
+  @tag2
   Scenario: Billing Feature scenario - 2
-     Given  User navigates to "https://www.nitw.ac.in/"
+     Given  User navigates to "https://www.google.com/"
      
     
