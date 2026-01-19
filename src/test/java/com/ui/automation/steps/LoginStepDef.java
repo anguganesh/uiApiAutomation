@@ -2,6 +2,8 @@ package com.ui.automation.steps;
 
 import java.io.IOException;
 
+import org.junit.Assert;
+
 import com.ui.api.automation.configuration.Hooks;
 import com.ui.automation.helpers.JsonHelper;
 import com.ui.automation.helpers.YamlHelper;
@@ -36,6 +38,13 @@ public class LoginStepDef extends BaseStepDefn {
 	@When("User navigate to {string}")
 	public void user_navigate_to(String url) {
 		super.driver.get(url);
+		System.out.println("User navigated to " + url);
+	}
+	
+	@When("User navigates to {string}")
+	public void user_navigates_to(String url) {
+		super.driver.get(url);
+		Assert.assertTrue(false);
 		System.out.println("User navigated to " + url);
 	}
 

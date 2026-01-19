@@ -1,5 +1,6 @@
 package com.ui.api.automation.configuration;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import org.apache.hc.core5.http.ContentType;
 import org.springframework.beans.BeansException;
@@ -15,12 +16,13 @@ import com.ui.automation.helpers.ApiCommonFunctions;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-
+import io.qameta.allure.Allure;
 
 public class BrowserConfiguration {
 
 	public final Hooks hooks;
 	private final ApiCommonFunctions apiCommonFunctions;
+	private final ReportsConfiguration reportConfiguration;
 	private UiYamlFilePath uiYamlFilePath;
 	private UiJsonFilePath uiJsonFilePath;
 	private ApiYamlFilePath apiYamlFilePath;
@@ -28,11 +30,12 @@ public class BrowserConfiguration {
 	private ApiEndPointDetails apiEndPointDetails;
 	private ApiData apiData;
 
-	public BrowserConfiguration(Hooks hooks, ApiCommonFunctions apiCommonFunctions) {
+	public BrowserConfiguration(Hooks hooks, ApiCommonFunctions apiCommonFunctions,
+			ReportsConfiguration allureReportConfiguration) {
 		// TODO Auto-generated constructor stub
 		this.hooks = hooks;
 		this.apiCommonFunctions = apiCommonFunctions;
-		//this.reportConfiguration = allureReportConfiguration;
+		this.reportConfiguration = allureReportConfiguration;
 	}
 
 	@Before(order = 0)
@@ -74,10 +77,10 @@ public class BrowserConfiguration {
 			if (scenario.isFailed()) {
 				hooks.copyScreenshotAsFile(scenario);
 				scenario.attach(hooks.getScreenshotAsBytes(), ContentType.IMAGE_PNG.toString(), scenario.getName());
-				//ExtentCucumberAdapter.getCurrentStep().log(Status.FAIL, MediaEntityBuilder
-					//	.createScreenCaptureFromBase64String(hooks.getBase64StringOfScreenshot()).build());
-				//Allure.addAttachment("Screenshot for test failure for scenario: " + scenario.getName(),
-					//	new ByteArrayInputStream(reportConfiguration.takesScreenshotForAllureReport()));
+				// ExtentCucumberAdapter.getCurrentStep().log(Status.FAIL, MediaEntityBuilder
+				// .createScreenCaptureFromBase64String(hooks.getBase64StringOfScreenshot()).build());
+				 Allure.addAttachment("Screenshot for test failure for scenario: " +
+				 scenario.getName(),  new ByteArrayInputStream(reportConfiguration.takesScreenshotForAllureReport()));
 			}
 
 			hooks.closeBrowser();

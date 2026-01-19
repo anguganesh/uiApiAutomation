@@ -35,6 +35,7 @@ C:\Users\aganesh\eclipse_workspace\uiApiAutomation\src\test\java\com\ui\api\auto
 C:\Users\aganesh\eclipse_workspace\uiApiAutomation\src\test\java\com\ui\api\automation\configuration\BrowserConfiguration.java
 C:\Users\aganesh\eclipse_workspace\uiApiAutomation\src\test\java\com\ui\api\automation\configuration\Hooks.java
 C:\Users\aganesh\eclipse_workspace\uiApiAutomation\src\test\java\com\ui\api\automation\configuration\ObjectConfig.java
+C:\Users\aganesh\eclipse_workspace\uiApiAutomation\src\test\java\com\ui\api\automation\configuration\ReportsConfiguration.java
 C:\Users\aganesh\eclipse_workspace\uiApiAutomation\src\test\java\com\ui\api\automation\configuration\YamlSourceFactory.java
 C:\Users\aganesh\eclipse_workspace\uiApiAutomation\src\test\java\com\ui\api\automation\rerun\AnnotationTransformer.java
 C:\Users\aganesh\eclipse_workspace\uiApiAutomation\src\test\java\com\ui\api\automation\rerun\Retry.java

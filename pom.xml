@@ -31,17 +31,26 @@
 		<maven.validationApi.version>4.0.0-M1</maven.validationApi.version>
 		<maven.surefire.plugin.version>3.5.4</maven.surefire.plugin.version>
 		<jackson.dataformat.yaml.version>2.20.1</jackson.dataformat.yaml.version>
+		<allure.bom.version>2.32.0</allure.bom.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
-			<!--<dependency>
-        <groupId>org.junit</groupId>
-        <artifactId>junit-bom</artifactId>
-        <version>5.11.0</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>-->
+			<dependency>
+				<groupId>org.junit</groupId>
+				<artifactId>junit-bom</artifactId>
+				<version>${maven.junit.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>io.qameta.allure</groupId>
+				<artifactId>allure-bom</artifactId>
+				<version>${allure.bom.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -149,6 +158,18 @@
 		</dependency>
 		<!-- End of Jackson Dependency -->
 
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${maven.testng.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-testng</artifactId>
+			<version>${maven.cucumber.testng.version}</version>
+		</dependency>
+
 		<!-- Junit Dependencies -->
 		<dependency>
 			<groupId>io.cucumber</groupId>
@@ -165,51 +186,41 @@
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-suite-api</artifactId>
-			<version>${maven.junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
-			<version>${maven.junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<version>${maven.junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-engine</artifactId>
-			<version>${maven.junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-suite-engine</artifactId>
-			<version>${maven.junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- Optionally: parameterized tests support -->
-		<!--<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-params</artifactId>
-			<scope>test</scope>
-		</dependency>-->
 		<!-- End of Junit-->
+		<!-- Allure Report Dependency-->
 		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>${maven.testng.version}</version>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-cucumber7-jvm</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-testng</artifactId>
-			<version>${maven.cucumber.testng.version}</version>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-junit-platform</artifactId>
+			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
 
@@ -238,11 +249,12 @@
 					<version>${maven.surefire.plugin.version}</version>
 					<configuration>
 						<testFailureIgnore>true</testFailureIgnore>
-						<rerunFailingTestsCount>1</rerunFailingTestsCount>
+						<rerunFailingTestsCount>3</rerunFailingTestsCount>
 						<skipTests>false</skipTests>
-						<includes>
+						<test>JunitRunner.java</test>
+						<!--<includes>
 							<include>JunitRunner.java</include>
-						</includes>
+						</includes>-->
 					</configuration>
 				</plugin>
 				<plugin>

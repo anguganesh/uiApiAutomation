@@ -14,6 +14,12 @@ import io.cucumber.junit.platform.engine.Constants;
 		                                                          + "com.ui.api.automation.configuration")
 @ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME, value = "@Test")
 @ConfigurationParameter(key = Constants.EXECUTION_DRY_RUN_PROPERTY_NAME, value = "false")
+@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME, value = "pretty,"
+		                                                            + "html:target/Reports/CucumberHTML/cucumber-report.html,"
+		                                                            + "json:target/Reports/CucumberJson/cucumber.json,"
+		                                                            + "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm")
+@ConfigurationParameter(key = Constants.PLUGIN_PUBLISH_ENABLED_PROPERTY_NAME, value = "true")
+@ConfigurationParameter(key = Constants.EXECUTION_DRY_RUN_PROPERTY_NAME, value = "false")
 
 
 
