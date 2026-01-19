@@ -10,6 +10,6 @@ Feature: Billing Feature Testing
     
   @tag2
   Scenario: Billing Feature scenario - 2
-     Given  User navigates to "https://www.google.com/"
+     Given  User navigate to "https://www.google.com/"
      
     
