@@ -30,6 +30,7 @@
 		<maven.restAssured.version>6.0.0</maven.restAssured.version>
 		<maven.validationApi.version>4.0.0-M1</maven.validationApi.version>
 		<maven.surefire.plugin.version>3.5.4</maven.surefire.plugin.version>
+		<maven.compiler.plugin.version>3.14.1</maven.compiler.plugin.version>
 		<jackson.dataformat.yaml.version>2.20.1</jackson.dataformat.yaml.version>
 		<allure.bom.version>2.32.0</allure.bom.version>
 	</properties>
@@ -184,26 +185,26 @@
 			<artifactId>cucumber-junit-platform-engine</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
+		<!--<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
+		</dependency>-->
+		<!--<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
+		</dependency>-->
+		<!--<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-suite</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
+		</dependency>-->
+		<!--<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-suite-api</artifactId>
 			<scope>test</scope>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-suite-engine</artifactId>
@@ -253,7 +254,16 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.13.0</version>
+					<version>${maven.compiler.plugin.version}</version>
+					<configuration>
+						<annotationProcessorPaths>
+							<path>
+								<groupId>org.projectlombok</groupId>
+								<artifactId>lombok</artifactId>
+								<version>${maven.lombok.version}</version>
+							</path>
+						</annotationProcessorPaths>
+					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
@@ -261,9 +271,9 @@
 					<configuration>
 						<rerunFailingTestsCount>1</rerunFailingTestsCount>
 						<testFailureIgnore>false</testFailureIgnore>
-						<test>JunitRunner.java</test>
+						<test>**/*JunitRunner.java</test>
 						<!--<includes>
-							<include>JunitRunner.java</include>
+							<include>**/JunitRunner.java</include>
 						</includes>-->
 					</configuration>
 				</plugin>
