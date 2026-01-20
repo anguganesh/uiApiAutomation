@@ -17,6 +17,7 @@ import io.cucumber.junit.platform.engine.Constants;
 		                                                            + "html:target/Reports/CucumberHTML/cucumber-report.html,"
 		                                                            + "json:target/Reports/CucumberJson/cucumber.json,"
 		                                                            + "rerun:target/Rerun/failed_scenarios.txt,"
+		                                                            + "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:,"
 		                                                            + "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm")
 @ConfigurationParameter(key = Constants.PLUGIN_PUBLISH_ENABLED_PROPERTY_NAME, value = "true")
 @ConfigurationParameter(key = Constants.EXECUTION_DRY_RUN_PROPERTY_NAME, value = "false")

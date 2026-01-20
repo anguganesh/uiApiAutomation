@@ -16,13 +16,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.release>24</maven.compiler.release>
 		<maven.cucumber.version>7.33.0</maven.cucumber.version>
-		<maven.cucumber.testng.version>7.33.0</maven.cucumber.testng.version>
-		<maven.cucumber.junit.platform.version>7.33.0</maven.cucumber.junit.platform.version>
-		<maven.testng.version>7.11.0</maven.testng.version>
 		<maven.junit.version>6.1.0-M1</maven.junit.version>
 		<maven.cucumber.jvm.deps>1.0.6</maven.cucumber.jvm.deps>
 		<maven.gherkin.jvm.deps>1.0.6</maven.gherkin.jvm.deps>
-		<maven.gherkin.version>37.0.1</maven.gherkin.version>
 		<maven.lombok.version>1.18.42</maven.lombok.version>
 		<maven.selenium.version>4.39.0</maven.selenium.version>
 		<maven.webdrivermanager.version>6.3.3</maven.webdrivermanager.version>
@@ -33,6 +29,8 @@
 		<maven.compiler.plugin.version>3.14.1</maven.compiler.plugin.version>
 		<jackson.dataformat.yaml.version>2.20.1</jackson.dataformat.yaml.version>
 		<allure.bom.version>2.32.0</allure.bom.version>
+		<maven.extent.report.version>5.1.2</maven.extent.report.version>
+		<maven.extent.reports.cucumber.adapter.version>1.14.0</maven.extent.reports.cucumber.adapter.version>
 	</properties>
 
 	<dependencyManagement>
@@ -162,18 +160,6 @@
 			<scope>compile</scope>
 		</dependency>
 		<!-- End of Jackson Dependency -->
-
-		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>${maven.testng.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-testng</artifactId>
-		</dependency>
-
 		<!-- Junit Dependencies -->
 		<dependency>
 			<groupId>io.cucumber</groupId>
@@ -232,7 +218,21 @@
 			<artifactId>allure-junit-platform</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+		<!-- End of Allure Report-->
+		<!-- Extent Report Dependency -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>${maven.extent.report.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>tech.grasshopper</groupId>
+			<artifactId>extentreports-cucumber7-adapter</artifactId>
+			<version>${maven.extent.reports.cucumber.adapter.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<!-- End of Extent Report-->
 	</dependencies>
 
 
