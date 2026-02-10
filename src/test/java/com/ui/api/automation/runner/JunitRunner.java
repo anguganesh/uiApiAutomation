@@ -12,7 +12,7 @@ import io.cucumber.junit.platform.engine.Constants;
 @ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME, value = "com.ui.automation.steps,"
                                                                   + "com.api.automation.steps,"
 		                                                          + "com.ui.api.automation.configuration")
-@ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME, value = "@Test")
+@ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME, value = "@API")
 @ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME, value = "pretty,"
 		                                                            + "html:target/Reports/CucumberHTML/cucumber-report.html,"
 		                                                            + "json:target/Reports/CucumberJson/cucumber.json,"
